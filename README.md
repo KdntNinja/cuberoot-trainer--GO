@@ -39,17 +39,27 @@ Your application will be running at [http://localhost:7331](http://localhost:733
 
 ## Deployment
 
-This template includes a production-ready Dockerfile for easy deployment:
+This application includes a production-ready Dockerfile for easy deployment:
 
 ```bash
 # Build the image
-docker build -t templui-app .
+docker build -t cube-root-trainer .
 
 # Run the container
-docker run -p 8090:8090 templui-app
+docker run -p 8090:8090 cube-root-trainer
 ```
 
 Your application will be available at `http://localhost:8090`
+
+### Docker Image Details
+
+The Docker image is built with all required dependencies:
+
+- Go 1.24 (for building the application)
+- templ v0.3.865 or later (for generating Go code from templ files)
+- Tailwind CSS v4.0.5 or later (for generating CSS)
+
+The final image is a minimal Alpine Linux image that contains only the compiled application and necessary runtime dependencies.
 
 ## Contributing
 

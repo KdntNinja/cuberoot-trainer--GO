@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e56e6400-d0c2-4b47-a724-0392beb57c82" name="Changes" comment="asd">
+    <list default="true" id="e56e6400-d0c2-4b47-a724-0392beb57c82" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/output.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pages/practice.templ" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pages/practice.templ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/templui.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/templui.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +25,12 @@
     &quot;assignee&quot;: &quot;KdntNinja&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/KdntNinja/cuberoot-trainer--GO",
-    "accountId": "f8641087-6f1a-407b-8f0b-f3c7d94cc0d8"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KdntNinja/cuberoot-trainer--GO&quot;,
+    &quot;accountId&quot;: &quot;f8641087-6f1a-407b-8f0b-f3c7d94cc0d8&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -49,6 +49,7 @@
     "Go Build.go build cuberoot-trainer--GO.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
@@ -69,7 +70,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Run dev" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="make dev" />
+      <option name="SCRIPT_TEXT" value="clear &amp;&amp; make dev" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -84,7 +85,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
   </component>
@@ -118,7 +121,8 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="d" />
     <MESSAGE value="asd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asd" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

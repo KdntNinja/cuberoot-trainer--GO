@@ -16,8 +16,11 @@ func main() {
 	mux := http.NewServeMux()
 	SetupAssetsRoutes(mux)
 	mux.Handle("GET /", templ.Handler(pages.Landing()))
-	mux.Handle("GET /practice", templ.Handler(pages.Practice()))
 	mux.Handle("GET /learn", templ.Handler(pages.Learn()))
+
+	// Practice page - handle both GET and POST requests separately
+	mux.HandleFunc("GET /practice", pages.HandlePractice)
+	mux.HandleFunc("POST /practice", pages.HandlePractice)
 	fmt.Println("Server is running on http://localhost:8090")
 	http.ListenAndServe(":8090", mux)
 }

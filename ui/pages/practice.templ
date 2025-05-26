@@ -3,65 +3,17 @@ package pages
 import (
 	"github.com/axzilla/templui-quickstart/ui/components/button"
 	"github.com/axzilla/templui-quickstart/ui/layouts"
+	"strconv"
 )
 
-script practiceScript() {
-	function generateProblem(preserveMessage = false) {
-		// Generate a random number between 1 and 100
-		const min = 1;
-		const max = 100;
-		const originalNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-
-		// Cube the number
-		const cube = Math.pow(originalNumber, 3);
-
-		// Store the original number as a data attribute for later verification
-		const problemElement = document.getElementById('problem-number');
-		problemElement.textContent = cube;
-		problemElement.dataset.answer = originalNumber;
-		// Only clear the result message if not preserving it
-		if (!preserveMessage) {
-			document.getElementById('result-message').textContent = '';
-		}
-		document.getElementById('answer-input').value = '';
-		document.getElementById('answer-input').focus();
-	}
-
-	function checkAnswer() {
-		const problemElement = document.getElementById('problem-number');
-		const problemNumber = parseInt(problemElement.textContent);
-		const userAnswer = parseInt(document.getElementById('answer-input').value);
-		// Get the correct answer from the data attribute we stored
-		const correctAnswer = parseInt(problemElement.dataset.answer);
-
-		const resultElement = document.getElementById('result-message');
-
-		if (userAnswer === correctAnswer) {
-			resultElement.textContent = 'Correct! 🎉';
-			resultElement.className = 'text-green-500 font-bold mt-2';
-			// Generate new problem immediately while preserving the "Correct" message
-			generateProblem(true);
-		} else {
-			resultElement.textContent = `Incorrect. The cube root of ${problemNumber} is ${correctAnswer}.`;
-			resultElement.className = 'text-red-500 font-bold mt-2';
-		}
-	}
-
-	document.addEventListener('DOMContentLoaded', function() {
-		generateProblem();
-
-		// Add event listener for the Enter key on the input
-		document.getElementById('answer-input').addEventListener('keypress', function(e) {
-			if (e.key === 'Enter') {
-				checkAnswer();
-			}
-		});
-	});
+// Practice renders the default practice page with a new problem
+templ Practice() {
+	@PracticeWithProblem(GenerateProblem())
 }
 
-templ Practice() {
+// PracticeWithProblem renders the practice page with a specific problem
+templ PracticeWithProblem(problem Problem) {
 	@layouts.BaseLayout() {
-		@practiceScript()
 		<div class="flex justify-center items-center min-h-screen">
 			<div class="flex flex-col gap-6 items-center justify-center px-4 w-full max-w-3xl py-16">
 				<div class="text-center space-y-4">
@@ -73,37 +25,49 @@ templ Practice() {
 
 				<div class="mt-8 p-8 bg-card rounded-lg shadow-sm w-full text-center">
 					<h2 class="text-2xl font-semibold mb-4">What is the cube root of:</h2>
-					<div id="problem-number" class="text-5xl font-bold my-6">125</div>
+					<div class="text-5xl font-bold my-6">{ strconv.Itoa(problem.Cube) }</div>
 
 					<div class="flex flex-col items-center gap-4">
-						<input 
-							id="answer-input"
-							type="number" 
-							class="px-4 py-2 border rounded-md w-32 text-center text-xl"
-							placeholder="?"
-						/>
+						<form method="POST" action="/practice" class="flex flex-col items-center gap-4 w-full">
+							<input type="hidden" name="cube" value={ strconv.Itoa(problem.Cube) } />
 
-						<div id="result-message" class="h-6"></div>
+							<input 
+								name="answer"
+								type="number" 
+								class="px-4 py-2 border rounded-md w-32 text-center text-xl"
+								placeholder="?"
+								autofocus
+							/>
 
-						<div class="flex gap-4 mt-4">
-							@button.Button(button.Props{
-								Variant: "default",
-								Attributes: templ.Attributes{
-									"onclick": "checkAnswer()",
-								},
-							}) {
-								Check Answer
+							if problem.Attempted {
+								if problem.IsCorrect {
+									<div class="text-green-500 font-bold mt-2">{ problem.Message }</div>
+								} else {
+									<div class="text-red-500 font-bold mt-2">{ problem.Message }</div>
+								}
+							} else {
+								<div class="h-6"></div>
 							}
 
-							@button.Button(button.Props{
-								Variant: "outline",
-								Attributes: templ.Attributes{
-									"onclick": "generateProblem(false)",
-								},
-							}) {
-								New Problem
-							}
-						</div>
+							<div class="flex gap-4 mt-4">
+								@button.Button(button.Props{
+									Variant: "default",
+									Type: "submit",
+								}) {
+									Check Answer
+								}
+
+								@button.Button(button.Props{
+									Variant: "outline",
+									Type: "button",
+									Attributes: templ.Attributes{
+										"onclick": "window.location.href='/practice'",
+									},
+								}) {
+									New Problem
+								}
+							</div>
+						</form>
 					</div>
 				</div>
 
