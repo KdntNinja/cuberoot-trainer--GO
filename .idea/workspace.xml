@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e56e6400-d0c2-4b47-a724-0392beb57c82" name="Changes" comment="First commit">
+    <list default="true" id="e56e6400-d0c2-4b47-a724-0392beb57c82" name="Changes" comment="d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
     </list>
@@ -25,7 +25,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/axzilla/templui-quickstart.git",
+    "url": "https://github.com/KdntNinja/cuberoot-trainer--GO",
     "accountId": "f8641087-6f1a-407b-8f0b-f3c7d94cc0d8"
   }
 }]]></component>
@@ -52,7 +52,7 @@
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "SHELLCHECK.PATH": "/home/kaiden/.local/share/JetBrains/GoLand2025.1/Shell Script/shellcheck",
     "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "htmx.bundled.context.provider.enabled": "true",
     "junie.onboarding.icon.badge.shown": "true",
@@ -61,7 +61,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/kaiden/GolandProjects/cuberoot-trainer--GO/main.go",
-    "settings.editor.selected.configurable": "ml.llm.LLMThirdPartyAiProvidersConfigurable"
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RunManager">
@@ -112,7 +112,8 @@
       <path value="$PROJECT_DIR$/templui-quickstart" />
     </ignored-roots>
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="d" />
+    <option name="LAST_COMMIT_MESSAGE" value="d" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

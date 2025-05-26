@@ -2,8 +2,18 @@ package modules
 
 templ Navbar() {
 	<nav class="border-b py-3">
-		<div class="container mx-auto px-4 flex justify-end">
-			@ThemeSwitcher()
+		<div class="container mx-auto px-4 flex justify-between items-center">
+			<div class="flex items-center">
+				<a href="/" class="text-xl font-bold mr-8">🧮 Cube Root Trainer</a>
+				<div class="flex gap-4">
+					<a href="/" class="hover:text-primary">Home</a>
+					<a href="/practice" class="hover:text-primary">Practice</a>
+					<a href="/learn" class="hover:text-primary">Learn</a>
+				</div>
+			</div>
+			<div>
+				@ThemeSwitcher()
+			</div>
 		</div>
 	</nav>
 }

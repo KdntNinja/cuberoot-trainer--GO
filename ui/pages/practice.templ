@@ -1,0 +1,131 @@
+package pages
+
+import (
+	"github.com/axzilla/templui-quickstart/ui/components/button"
+	"github.com/axzilla/templui-quickstart/ui/layouts"
+)
+
+script practiceScript() {
+	function generateProblem() {
+		// Generate a perfect cube between 1 and 1000
+		const max = 10; // Maximum cube root (10^3 = 1000)
+		const min = 2;  // Minimum cube root
+		const cubeRoot = Math.floor(Math.random() * (max - min + 1)) + min;
+		const cube = Math.pow(cubeRoot, 3);
+		
+		// Update the problem display
+		document.getElementById('problem-number').textContent = cube;
+		document.getElementById('result-message').textContent = '';
+		document.getElementById('answer-input').value = '';
+		document.getElementById('answer-input').focus();
+	}
+	
+	function checkAnswer() {
+		const problemNumber = parseInt(document.getElementById('problem-number').textContent);
+		const userAnswer = parseInt(document.getElementById('answer-input').value);
+		const correctAnswer = Math.round(Math.cbrt(problemNumber));
+		
+		const resultElement = document.getElementById('result-message');
+		
+		if (userAnswer === correctAnswer) {
+			resultElement.textContent = 'Correct! 🎉';
+			resultElement.className = 'text-green-500 font-bold mt-2';
+			setTimeout(generateProblem, 1500);
+		} else {
+			resultElement.textContent = `Incorrect. The cube root of ${problemNumber} is ${correctAnswer}.`;
+			resultElement.className = 'text-red-500 font-bold mt-2';
+		}
+	}
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		generateProblem();
+		
+		// Add event listener for the Enter key on the input
+		document.getElementById('answer-input').addEventListener('keypress', function(e) {
+			if (e.key === 'Enter') {
+				checkAnswer();
+			}
+		});
+	});
+}
+
+templ Practice() {
+	@layouts.BaseLayout() {
+		@practiceScript()
+		<div class="flex justify-center items-center min-h-screen">
+			<div class="flex flex-col gap-6 items-center justify-center px-4 w-full max-w-3xl py-16">
+				<div class="text-center space-y-4">
+					<h1 class="text-4xl font-bold">Cube Root Practice</h1>
+					<p class="text-muted-foreground text-lg">
+						Calculate the cube root of the number below. Enter your answer and press Enter or click Check.
+					</p>
+				</div>
+				
+				<div class="mt-8 p-8 bg-card rounded-lg shadow-sm w-full text-center">
+					<h2 class="text-2xl font-semibold mb-4">What is the cube root of:</h2>
+					<div id="problem-number" class="text-5xl font-bold my-6">125</div>
+					
+					<div class="flex flex-col items-center gap-4">
+						<input 
+							id="answer-input"
+							type="number" 
+							class="px-4 py-2 border rounded-md w-32 text-center text-xl"
+							placeholder="?"
+						/>
+						
+						<div id="result-message" class="h-6"></div>
+						
+						<div class="flex gap-4 mt-4">
+							@button.Button(button.Props{
+								Variant: "default",
+								Attributes: templ.Attributes{
+									"onclick": "checkAnswer()",
+								},
+							}) {
+								Check Answer
+							}
+							
+							@button.Button(button.Props{
+								Variant: "outline",
+								Attributes: templ.Attributes{
+									"onclick": "generateProblem()",
+								},
+							}) {
+								New Problem
+							}
+						</div>
+					</div>
+				</div>
+				
+				<div class="mt-8 p-6 bg-card rounded-lg shadow-sm w-full">
+					<h2 class="text-2xl font-semibold mb-4">Tips for Mental Cube Roots</h2>
+					<ul class="space-y-2 list-disc pl-5">
+						<li>Memorize the cubes of numbers 1-10 (1, 8, 27, 64, 125, 216, 343, 512, 729, 1000)</li>
+						<li>For numbers ending in 5, the cube root ends in 5</li>
+						<li>For numbers ending in 6, the cube root ends in 6</li>
+						<li>For numbers ending in 7, the cube root ends in 3</li>
+						<li>For numbers ending in 8, the cube root ends in 2</li>
+					</ul>
+					
+					<div class="mt-6 text-center">
+						@button.Button(button.Props{
+							Variant: "link",
+							Href:    "/learn",
+						}) {
+							Learn More Techniques
+						}
+					</div>
+				</div>
+				
+				<div class="mt-4">
+					@button.Button(button.Props{
+						Variant: "outline",
+						Href:    "/",
+					}) {
+						Back to Home
+					}
+				</div>
+			</div>
+		</div>
+	}
+}

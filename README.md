@@ -1,10 +1,16 @@
-# templUI Quickstart
+# Cube Root Trainer
 
-Get started with templUI, an enterprise-ready UI component library for Go and templ. This template provides a pre-configured setup for building professional web applications with templUI components.
+A web application that helps you learn and practice calculating cube roots in your head. Built with Go and templUI components.
+
+## Features
+
+- **Practice Mode**: Generate random cube root problems and test your mental calculation skills
+- **Learning Resources**: Learn techniques and patterns for calculating cube roots mentally
+- **Interactive UI**: Get immediate feedback on your answers
 
 ## Installation
 
-For installation instructions, visit our [documentation](https://templui.io/docs/how-to-use#requirements).
+This application is built with Go and uses the templUI component library.
 
 ## Setup
 

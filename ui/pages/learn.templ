@@ -1,0 +1,126 @@
+package pages
+
+import (
+	"github.com/axzilla/templui-quickstart/ui/components/button"
+	"github.com/axzilla/templui-quickstart/ui/layouts"
+)
+
+templ Learn() {
+	@layouts.BaseLayout() {
+		<div class="flex justify-center items-center min-h-screen">
+			<div class="flex flex-col gap-6 items-center justify-center px-4 w-full max-w-3xl py-16">
+				<div class="text-center space-y-4">
+					<h1 class="text-4xl font-bold">Learning Cube Root Techniques</h1>
+					<p class="text-muted-foreground text-lg">
+						Master these techniques to calculate cube roots in your head quickly and accurately.
+					</p>
+				</div>
+				
+				<div class="mt-8 p-6 bg-card rounded-lg shadow-sm w-full">
+					<h2 class="text-2xl font-semibold mb-4">Basic Technique: Memorization</h2>
+					<p class="mb-4">The foundation of calculating cube roots mentally is memorizing the cubes of single-digit numbers:</p>
+					
+					<div class="overflow-x-auto">
+						<table class="min-w-full bg-card">
+							<thead>
+								<tr>
+									<th class="px-4 py-2 border">Number</th>
+									<th class="px-4 py-2 border">Cube</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td class="px-4 py-2 border">1</td><td class="px-4 py-2 border">1</td></tr>
+								<tr><td class="px-4 py-2 border">2</td><td class="px-4 py-2 border">8</td></tr>
+								<tr><td class="px-4 py-2 border">3</td><td class="px-4 py-2 border">27</td></tr>
+								<tr><td class="px-4 py-2 border">4</td><td class="px-4 py-2 border">64</td></tr>
+								<tr><td class="px-4 py-2 border">5</td><td class="px-4 py-2 border">125</td></tr>
+								<tr><td class="px-4 py-2 border">6</td><td class="px-4 py-2 border">216</td></tr>
+								<tr><td class="px-4 py-2 border">7</td><td class="px-4 py-2 border">343</td></tr>
+								<tr><td class="px-4 py-2 border">8</td><td class="px-4 py-2 border">512</td></tr>
+								<tr><td class="px-4 py-2 border">9</td><td class="px-4 py-2 border">729</td></tr>
+								<tr><td class="px-4 py-2 border">10</td><td class="px-4 py-2 border">1000</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<div class="mt-4 p-6 bg-card rounded-lg shadow-sm w-full">
+					<h2 class="text-2xl font-semibold mb-4">Pattern Recognition</h2>
+					
+					<h3 class="text-xl font-medium mt-4 mb-2">Last Digit Patterns</h3>
+					<p class="mb-4">The last digit of a cube follows a pattern that can help you determine the last digit of its cube root:</p>
+					
+					<div class="overflow-x-auto">
+						<table class="min-w-full bg-card">
+							<thead>
+								<tr>
+									<th class="px-4 py-2 border">Last digit of cube</th>
+									<th class="px-4 py-2 border">Last digit of cube root</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td class="px-4 py-2 border">0</td><td class="px-4 py-2 border">0</td></tr>
+								<tr><td class="px-4 py-2 border">1</td><td class="px-4 py-2 border">1</td></tr>
+								<tr><td class="px-4 py-2 border">2</td><td class="px-4 py-2 border">8</td></tr>
+								<tr><td class="px-4 py-2 border">3</td><td class="px-4 py-2 border">7</td></tr>
+								<tr><td class="px-4 py-2 border">4</td><td class="px-4 py-2 border">4</td></tr>
+								<tr><td class="px-4 py-2 border">5</td><td class="px-4 py-2 border">5</td></tr>
+								<tr><td class="px-4 py-2 border">6</td><td class="px-4 py-2 border">6</td></tr>
+								<tr><td class="px-4 py-2 border">7</td><td class="px-4 py-2 border">3</td></tr>
+								<tr><td class="px-4 py-2 border">8</td><td class="px-4 py-2 border">2</td></tr>
+								<tr><td class="px-4 py-2 border">9</td><td class="px-4 py-2 border">9</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<div class="mt-4 p-6 bg-card rounded-lg shadow-sm w-full">
+					<h2 class="text-2xl font-semibold mb-4">Step-by-Step Method</h2>
+					
+					<ol class="list-decimal pl-5 space-y-4">
+						<li>
+							<strong>Estimate the range:</strong> Determine which two perfect cubes the number falls between.
+							<p class="text-muted-foreground">Example: For 300, it's between 216 (6³) and 343 (7³)</p>
+						</li>
+						<li>
+							<strong>Check the last digit:</strong> Use the pattern table to narrow down possibilities.
+							<p class="text-muted-foreground">Example: If a number ends in 7, its cube root ends in 3</p>
+						</li>
+						<li>
+							<strong>Make an educated guess:</strong> Based on the range and last digit.
+						</li>
+						<li>
+							<strong>Refine if needed:</strong> If your guess is close but not exact, adjust up or down.
+						</li>
+					</ol>
+					
+					<div class="mt-6 p-4 bg-muted rounded-md">
+						<h3 class="text-lg font-medium mb-2">Example: Finding the cube root of 125</h3>
+						<ol class="list-decimal pl-5 space-y-2">
+							<li>125 ends in 5, so the cube root ends in 5</li>
+							<li>125 is between 64 (4³) and 216 (6³)</li>
+							<li>Since it ends in 5, the cube root must be 5</li>
+							<li>Verify: 5³ = 125 ✓</li>
+						</ol>
+					</div>
+				</div>
+				
+				<div class="mt-4 flex gap-4">
+					@button.Button(button.Props{
+						Variant: "default",
+						Href:    "/practice",
+					}) {
+						Practice Now
+					}
+					
+					@button.Button(button.Props{
+						Variant: "outline",
+						Href:    "/",
+					}) {
+						Back to Home
+					}
+				</div>
+			</div>
+		</div>
+	}
+}
