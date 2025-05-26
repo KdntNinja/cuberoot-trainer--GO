@@ -7,14 +7,18 @@ import (
 
 script practiceScript() {
 	function generateProblem(preserveMessage = false) {
-		// Generate a perfect cube between 1 and 1000
-		const max = 10; // Maximum cube root (10^3 = 1000)
-		const min = 2;  // Minimum cube root
-		const cubeRoot = Math.floor(Math.random() * (max - min + 1)) + min;
-		const cube = Math.pow(cubeRoot, 3);
+		// Generate a random number between 1 and 100
+		const min = 1;
+		const max = 100;
+		const originalNumber = Math.floor(Math.random() * (max - min + 1)) + min;
 
-		// Update the problem display
-		document.getElementById('problem-number').textContent = cube;
+		// Cube the number
+		const cube = Math.pow(originalNumber, 3);
+
+		// Store the original number as a data attribute for later verification
+		const problemElement = document.getElementById('problem-number');
+		problemElement.textContent = cube;
+		problemElement.dataset.answer = originalNumber;
 		// Only clear the result message if not preserving it
 		if (!preserveMessage) {
 			document.getElementById('result-message').textContent = '';
@@ -24,9 +28,11 @@ script practiceScript() {
 	}
 
 	function checkAnswer() {
-		const problemNumber = parseInt(document.getElementById('problem-number').textContent);
+		const problemElement = document.getElementById('problem-number');
+		const problemNumber = parseInt(problemElement.textContent);
 		const userAnswer = parseInt(document.getElementById('answer-input').value);
-		const correctAnswer = Math.round(Math.cbrt(problemNumber));
+		// Get the correct answer from the data attribute we stored
+		const correctAnswer = parseInt(problemElement.dataset.answer);
 
 		const resultElement = document.getElementById('result-message');
 
