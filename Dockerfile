@@ -19,9 +19,6 @@ COPY . .
 # Generate templ files
 RUN templ generate
 
-# Process CSS with Tailwind
-RUN tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --minify
-
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -o main ./main.go
 
@@ -37,6 +34,9 @@ ENV GO_ENV=production
 
 # Copy the binary from the build stage
 COPY --from=build /app/main .
+
+# Copy the assets directory for static files
+COPY --from=build /app/assets ./assets
 
 # Expose the port your application runs on
 EXPOSE 8090
