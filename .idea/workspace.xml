@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e56e6400-d0c2-4b47-a724-0392beb57c82" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/output.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pages/practice.go" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pages/practice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pages/practice.templ" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pages/practice.templ" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

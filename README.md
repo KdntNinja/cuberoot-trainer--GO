@@ -35,7 +35,7 @@ Start the development server with hot reload:
 make dev
 ```
 
-Your application will be running at [http://localhost:7331](http://localhost:7331)
+Your application will be running at [http://localhost:8090](http://localhost:8090)
 
 ## Deployment
 

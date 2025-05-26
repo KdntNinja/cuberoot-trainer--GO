@@ -22,7 +22,11 @@ func main() {
 	mux.HandleFunc("GET /practice", pages.HandlePractice)
 	mux.HandleFunc("POST /practice", pages.HandlePractice)
 	fmt.Println("Server is running on http://localhost:8090")
-	http.ListenAndServe(":8090", mux)
+	err := http.ListenAndServe(":8090", mux)
+	if err != nil {
+		fmt.Printf("Server failed to start: %v\n", err)
+		os.Exit(1)
+	}
 }
 
 func InitDotEnv() {

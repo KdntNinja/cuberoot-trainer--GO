@@ -37,6 +37,9 @@ templ PracticeWithProblem(problem Problem) {
 								class="px-4 py-2 border rounded-md w-32 text-center text-xl"
 								placeholder="?"
 								autofocus
+								aria-label="Enter the cube root"
+								min="1"
+								max="100"
 							/>
 
 							if problem.Attempted {
@@ -75,10 +78,16 @@ templ PracticeWithProblem(problem Problem) {
 					<h2 class="text-2xl font-semibold mb-4">Tips for Mental Cube Roots</h2>
 					<ul class="space-y-2 list-disc pl-5">
 						<li>Memorize the cubes of numbers 1-10 (1, 8, 27, 64, 125, 216, 343, 512, 729, 1000)</li>
+						<li>For numbers ending in 0, the cube root ends in 0</li>
+						<li>For numbers ending in 1, the cube root ends in 1</li>
+						<li>For numbers ending in 2, the cube root ends in 8</li>
+						<li>For numbers ending in 3, the cube root ends in 7</li>
+						<li>For numbers ending in 4, the cube root ends in 4</li>
 						<li>For numbers ending in 5, the cube root ends in 5</li>
 						<li>For numbers ending in 6, the cube root ends in 6</li>
 						<li>For numbers ending in 7, the cube root ends in 3</li>
 						<li>For numbers ending in 8, the cube root ends in 2</li>
+						<li>For numbers ending in 9, the cube root ends in 9</li>
 					</ul>
 
 					<div class="mt-6 text-center">

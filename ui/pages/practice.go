@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/a-h/templ"
 )
@@ -21,10 +22,14 @@ type Problem struct {
 
 // GenerateProblem creates a new cube root problem
 func GenerateProblem() Problem {
+	// Create a new random source with the current time as seed
+	source := rand.NewSource(time.Now().UnixNano())
+	rng := rand.New(source)
+
 	// Generate a random number between 1 and 100
 	min := 1
 	max := 100
-	cubeRoot := rand.Intn(max-min+1) + min
+	cubeRoot := rng.Intn(max-min+1) + min
 
 	// Cube the number
 	cube := int(math.Pow(float64(cubeRoot), 3))
