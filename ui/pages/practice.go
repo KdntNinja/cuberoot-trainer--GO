@@ -27,9 +27,9 @@ func GenerateProblem() Problem {
 	rng := rand.New(source)
 
 	// Generate a random number between 1 and 100
-	min := 1
-	max := 100
-	cubeRoot := rng.Intn(max-min+1) + min
+	minValue := 1
+	maxValue := 100
+	cubeRoot := rng.Intn(maxValue-minValue+1) + minValue
 
 	// Cube the number
 	cube := int(math.Pow(float64(cubeRoot), 3))
