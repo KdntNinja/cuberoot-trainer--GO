@@ -16,9 +16,6 @@ RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/downlo
 # Copy the source code
 COPY . .
 
-# Generate CSS with Tailwind
-RUN tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --minify
-
 # Generate templ files
 RUN templ generate
 
