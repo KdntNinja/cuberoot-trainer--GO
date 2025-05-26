@@ -8,11 +8,6 @@ RUN apk add --no-cache gcc musl-dev curl
 # Install templ v0.3.865 or later
 RUN go install github.com/a-h/templ/cmd/templ@v0.3.865
 
-# Install Tailwind CSS CLI v4.0.5 or later for Linux
-RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64 && \
-    chmod +x tailwindcss-linux-x64 && \
-    mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
-
 # Copy the source code
 COPY . .
 
@@ -34,9 +29,6 @@ ENV GO_ENV=production
 
 # Copy the binary from the build stage
 COPY --from=build /app/main .
-
-# Copy the assets directory for static files
-COPY --from=build /app/assets ./assets
 
 # Expose the port your application runs on
 EXPOSE 8090
