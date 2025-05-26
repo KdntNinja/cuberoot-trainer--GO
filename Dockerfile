@@ -2,17 +2,17 @@
 FROM golang:1.24-alpine AS build
 WORKDIR /app
 
-# Install build dependencies
-RUN apk add --no-cache gcc musl-dev curl
-
-# Install templ v0.3.865 or later
-RUN go install github.com/a-h/templ/cmd/templ@v0.3.865
-
 # Copy the source code
 COPY . .
 
+# Install templ
+RUN go install github.com/a-h/templ/cmd/templ@latest
+
 # Generate templ files
 RUN templ generate
+
+# Install build dependencies
+RUN apk add --no-cache gcc musl-dev
 
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -o main ./main.go
@@ -23,9 +23,6 @@ WORKDIR /app
 
 # Install ca-certificates
 RUN apk add --no-cache ca-certificates
-
-# Set environment variable for runtime
-ENV GO_ENV=production
 
 # Copy the binary from the build stage
 COPY --from=build /app/main .
