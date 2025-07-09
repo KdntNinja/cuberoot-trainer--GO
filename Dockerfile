@@ -2,11 +2,17 @@
 FROM golang:1.24-alpine AS build
 WORKDIR /app
 
+# Copy go mod files first for better caching
+COPY go.mod go.sum ./
+
+# Download dependencies
+RUN go mod download
+
 # Copy the source code
 COPY . .
 
-# Install templ
-RUN go install github.com/a-h/templ/cmd/templ@latest
+# Install templ with the specific version from go.mod
+RUN go install github.com/a-h/templ/cmd/templ@v0.3.906
 
 # Generate templ files
 RUN templ generate
