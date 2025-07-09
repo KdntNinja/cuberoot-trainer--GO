@@ -17,7 +17,7 @@ This application is built with Go and uses the templUI component library.
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/axzilla/templui-quickstart.git
+   git clone https://github.com/KdntNinja/cuberoot-trainer--GO.git
    cd templui-quickstart
    ```
 

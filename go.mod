@@ -1,4 +1,4 @@
-module github.com/axzilla/templui-quickstart
+module github.com/KdntNinja/cuberoot-trainer--GO
 
 go 1.24.0
 

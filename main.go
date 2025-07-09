@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/KdntNinja/cuberoot-trainer--GO/assets"
+	"github.com/KdntNinja/cuberoot-trainer--GO/ui/pages"
 	"github.com/a-h/templ"
-	"github.com/axzilla/templui-quickstart/assets"
-	"github.com/axzilla/templui-quickstart/ui/pages"
 )
 
 func main() {
